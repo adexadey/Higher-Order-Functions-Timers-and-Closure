@@ -84,7 +84,7 @@ isOdd()
 //
 //
 // Task 5 - 8 incomplete
-
+0243889047 
 /*
 5. isPrime
 ● Write a function called isPrime which takes in a number and returns true if the
@@ -92,24 +92,52 @@ number is a prime number (is greater than 1 and can only be divided in whole
 by itself and 1), otherwise returns false
 isPrime( 8 ); // false
 isPrime( 17 ); // true
+*/
 
+function isPrime(value) {
+    for(var i = 2; i <= Math.sqrt(value); i++) {
+        if(value % i === 0) {
+            return false;
+        }
+    }
+    return value > 1;
+}
 
+console.log(isPrime(8)); // false
+
+/*
 6. numberFact
 ● Write a function called numberFact which takes in a number and a callback
 and returns the result of the callback with the number passed to it
 numberFact( 59 ,isEven); // false
 numberFact( 59 ,isOdd); // true
 numberFact( 59 ,isPrime); // true
+*/
+
+function numberFact(num, callback) {
+	return callback(num)
+}
+
+console.log(numberFact(59, isPrime));
 
 
+/*
 7. find
 ● Write a function called find . It should take in an array and a callback and
 return the first value found in the array that matches the condition.
 find([ 8 , 11 , 4 , 27 ], function (val){ return val >= 10 }); // 11
 find([ 8 , 11 , 4 , 27 ], function (val){ return val === 5 }); // undefined
+*/
 
+function find(arr, callback) {
+	for(var 1 = 0; arr.length; i++){
+		if(callback(arr[i])) return i 
+	}
+	
+}
+find([ 8 , 11 , 4 , 27 ], function (val){ return val >= 10 }); // 11
 
-
+/*
 8. findIndex
 ● Write a function called findIndex . It should take in an array and a callback
 and return the index of first value found in the array that matches the
@@ -117,8 +145,18 @@ condition.
 // returns 1 (index of the first value greater than or equal to 10)
 findIndex([ 8 , 11 , 4 , 27 ], function (val){ return val >= 10 });
 findIndex([ 8 , 11 , 4 , 27 ], function (val){ return val === 7 }); // undefined
+*/
+
+function findIndex(arr, callback) {
+	for(var 1 = 0; arr.length; i++){
+		if(callback(arr[i])) return i 
+	}
+	
+}
+findIndex([ 8 , 11 , 4 , 27 ], function (val){ return val >= 10 });
 
 
+/*
 9. specialMultiply
 ● Write a function called specialMultiply which accepts two parameters. If the
 function is passed both parameters, it should return the product of the two. If
@@ -128,5 +166,21 @@ use closure and arguments to solve this.
 specialMultiply( 3 , 4 ); // 12
 specialMultiply( 3 )( 4 ); // 12
 specialMultiply( 3 ); // returns a function
-
 */
+
+function specialMultiply(a, b) {
+	if(arguments.length === 1){
+		return function(b){
+			return a * b
+		}
+	}
+	return a * b
+}
+
+console.log(specialMultiply( 3 , 4 )); //12
+
+
+
+
+
+
